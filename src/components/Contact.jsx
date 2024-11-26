@@ -1,13 +1,126 @@
-import React from 'react';
+import React, { useState } from "react";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import contactImage from "../images/coffee.jpg"; // Placeholder image
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "2aef2153-bde5-4a37-bdc3-d88a10cdb9d8",
+        ...formData,
+      }),
+    });
+
+    if (response.ok) {
+      setStatus("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      setStatus("Failed to send message. Please try again.");
+    }
+  };
+
   return (
-    <section className="contact text-center py-5">
-      <div className="container">
-        <h2>Contact Us</h2>
-        <p>Phone: +1234567890 <br /> Email: example@email.com</p>
+    <div className="contact-page">
+      {/* Banner Section */}
+      <div className="contact-banner">
+        <div className="banner-overlay">
+          <h1>Feel Free to Contact Us</h1>
+          <p>We are open every day</p>
+          <h2>8 AM - 9 PM</h2>
+        </div>
       </div>
-    </section>
+
+      {/* Contact Info Section */}
+      <div className="contact-info-section">
+        <div className="info-item">
+          <FaPhoneAlt className="info-icon" />
+          <p>+1 (234) 567-890</p>
+        </div>
+        <div className="info-item">
+          <FaEnvelope className="info-icon" />
+          <p>contact@kococafe.com</p>
+        </div>
+        <div className="info-item">
+          <FaMapMarkerAlt className="info-icon" />
+          <p>123 Ko-Co Cafe Lane, Foodsville, FS 45678</p>
+        </div>
+        <div className="info-item">
+          <FaClock className="info-icon" />
+          <p>Mon-Sun: 8 AM - 9 PM</p>
+        </div>
+      </div>
+
+      {/* Form Section */}
+      <div className="contact-form-container">
+        <h2>Do You Have a Question?</h2>
+        <p>We'd love to hear from you! Reach out to us for any inquiries or feedback.</p>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="form-control"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-control"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              className="form-control"
+              placeholder="Your Message"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Send a Message
+          </button>
+        </form>
+        {status && <p className="status-message">{status}</p>}
+      </div>
+    </div>
   );
 }
 

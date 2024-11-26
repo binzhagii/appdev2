@@ -3,7 +3,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  line-height: 25px;
   background-color: #fff; /* Ensure consistent background */
 }
 
@@ -15,7 +15,7 @@ h1, h2, h4 {
   position: relative;
   background: url("https://scontent.fcrk1-4.fna.fbcdn.net/v/t39.30808-6/451782355_122157364772055652_8406867323998566647_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHBMObe2nhgWZi0c4YN7VPTVzKBqIs2W9JXMoGoizZb0h92n8q7ExEkU3KWDI00wWzX1mYSmNapHvWpWU9MZbdM&_nc_ohc=7aU3ye8DJAUQ7kNvgF7GIMj&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&_nc_gid=AbgW0jRkET25cSTonmODh1r&oh=00_AYAVc2Lyjuv5yXhXIcuMtyWQ7B8uXzjBtYPWLmjKvUhv3w&oe=6748F0D7") no-repeat center center / cover;
   min-height: 100vh;
-  color: #fff; 
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,67 +54,142 @@ h1, h2, h4 {
 }
 
 .hero-button {
-  font-size: 1.2rem;
-  background-color: #fff; 
-  color: #007bff; 
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #e67e22; /* Consistent button color */
+  color: white;
   padding: 10px 20px;
+  border: none;
   border-radius: 5px;
-  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .hero-button:hover {
-  background-color: #0056b3; 
+  background-color: #d35400; /* Darker hover color */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.hero-button:focus {
+  outline: none;
+}
+
+.cart-section {
+  margin-top: 20px;
+  text-align: center; /* Center the cart section */
+}
+
+.cart-btn {
+  font-size: 1.2rem;
+  background-color: #e67e22; /* Cart button background color */
   color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
 }
 
-#hero h1,
-#hero p {
-  position: relative;
-  z-index: 2;
+.cart-btn i {
+  margin-right: 8px; /* Space between icon and item count */
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.cart-btn:hover {
+  background-color: #d35400; /* Darker color on hover */
 }
 
 /* Navbar */
 .navbar {
-  padding: 15px 0;
-  background-color: #007bff;
+  background-color: #ffffff; /* Clean white background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 20px 0; /* Adjusted for better spacing */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Montserrat', Helvetica; /* Font style from the Cafe2 theme */
+  font-weight: 400; /* Normal weight */
 }
 
-.navbar .form-control {
-  width: 200px;
+.navbar .navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Centers the logo */
+  font-size: 14px; /* Larger logo size */
+  font-weight: 700; /* Bold logo text */
 }
 
-.navbar .btn-outline-success {
-  margin-left: 5px;
+.navbar .navbar-brand img {
+  width: 150px; /* Adjust the logo size */
+  height: auto;
 }
 
-.navbar .d-flex {
+.navbar-nav {
+  display: flex;
+  justify-content: space-between; /* Space between nav items */
   align-items: center;
+  width: 100%;
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000000;
+.navbar-nav .nav-item {
+  margin: 0 15px; /* Space between nav items */
 }
 
-.navbar-nav .nav-item .nav-link {
-  color: #000000;
-  font-size: 1.1rem;
-  margin-left: 15px;
+.navbar-nav .nav-link {
+  font-size: 14px; /* Slightly larger font for nav links */
+  font-weight: 400; /* Slightly bolder links */
+  color: #333; /* Neutral text color */
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  letter-spacing: 0px;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #e68647;
+  color: #d2691e; /* Hover effect in brownish color */
 }
 
 .navbar-nav .nav-link.active {
+  border-bottom: 2px solid #d2691e; /* Underline active link */
+}
+
+.navbar .btn-outline-dark {
+  padding: 10px 20px;
+  background-color: #e67e22; /* Consistent button color */
+  color: white;
+  border: none;
+  font-size: 14px;
   font-weight: bold;
-  color: #64635f;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar .btn-outline-dark:hover {
+  background-color: #d35400; /* Darker hover color */
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23333' viewBox='0 0 30 30'%3E%3Cpath stroke='%23333' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 14px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+
+  .navbar .btn-outline-dark {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
 }
 
 /* Services Section */
@@ -206,46 +281,40 @@ a {
 /* Footer Section */
 .footer {
   background-color: #f8f9fa;
-  padding: 40px 0;
-  background-image: url('https://t3.ftcdn.net/jpg/04/29/35/62/360_F_429356296_CVQ5LkC6Pl55kUNLqLisVKgTw9vjyif1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color:  #f8f9fa;
+  font-family: "Arial", sans-serif;
+  padding: 2rem 0;
 }
 
-.footer h5 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+.footer .fw-bold {
+  color: #d2691e; /* Brownish theme to match a cafe */
 }
 
-.footer form {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer .form-control {
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.footer p {
+.footer p,
+.footer a {
   font-size: 0.9rem;
+  color: #333;
+  margin: 0;
 }
 
-.footer .row {
-  text-align: left;
-}
-
-.footer .social-icons a {
-  color: #fff;
-  margin-right: 10px;
-  font-size: 1.5rem;
+.footer .social-icons .me-3 {
+  font-size: 1.2rem;
+  color: #d2691e;
+  cursor: pointer;
   transition: color 0.3s ease;
 }
 
-.footer .social-icons a:hover {
-  color: #007bff;
+.footer .social-icons .me-3:hover {
+  color: #ff7043; /* Highlighted hover effect */
+}
+
+.footer hr {
+  border-top: 1px solid #ddd;
+  margin: 1rem 0;
+}
+
+.footer p.text-center {
+  font-size: 0.85rem;
+  color: #666;
 }
 
 /* Responsive Adjustments */
@@ -308,4 +377,100 @@ a {
   .footer .social-icons a {
     font-size: 1.2rem;
   }
+}
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Banner Section */
+.contact-banner {
+  background: url('./images/coffee.jpg') no-repeat center center/cover; /*Temporary: NEED TO BE CHANGED*/
+  color: white;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-banner .banner-overlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-banner h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.contact-banner h2 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  width: 100%;
+  background: #f9f9f9;
+}
+
+.info-item {
+  text-align: center;
+  margin: 10px;
+}
+
+.info-item .info-icon {
+  font-size: 2rem;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+/* Form Section */
+.contact-form-container {
+  max-width: 600px;
+  margin: 20px;
+  text-align: center;
+}
+
+.contact-form-container h2 {
+  font-size: 2rem;
+}
+
+.contact-form-container .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form-container .form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.contact-form-container .btn {
+  padding: 10px 20px;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form-container .btn:hover {
+  background-color: #d35400;
+}
+
+.status-message {
+  margin-top: 10px;
+  color: green;
 }

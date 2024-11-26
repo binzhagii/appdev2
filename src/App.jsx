@@ -1,48 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import { useState } from 'react';
 import Home from './components/Home.jsx';
 import Menu1 from './components/Menu1.jsx';
 import Contact from './components/Contact.jsx';
-
-import Checkout from './components/Checkout.jsx'; // Removed Cart, added Checkout
+import Checkout from './components/Checkout.jsx';
+import Footer from "./components/Footer.jsx";
+import Cart from "./components/Cart.jsx";
 
 function App() {
-  const [cart, setCart] = useState([]); // Track cart items
-
-  // Function to update cart
-  const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]); // Add item to cart
-  };
-
-  // Function to clear the cart
-  const clearCart = () => {
-    setCart([]); // Clear the cart
-  };
+  const cartData = []; // Initialize empty cart, manage it in Menu1
 
   return (
     <Router>
       <div>
         {/* Navbar */}
-        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-          <div className="container">
-            <a className="navbar-brand fw-bold" href="#">
-              Ko-Co Cafe
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto">
+        <nav className="navbar navbar-expand-lg navbar-custom shadow-sm">
+          <div className="container d-flex justify-content-between align-items-center">
+            {/* Left side navigation links */}
+            <div className="d-flex justify-content-start">
+              <ul className="navbar-nav">
                 <li className="nav-item">
                   <Link className="nav-link" to="/">
                     Home
@@ -54,30 +31,37 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/contact">
-                    Review
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/Gallery">
                     Gallery
                   </Link>
                 </li>
+              </ul>
+            </div>
+
+            {/* Centered logo */}
+            <Link to="/" className="navbar-brand">
+              <img
+                src="src/images/logo.png"
+                alt="Ko-Co Cafe Logo"
+                className="logo"
+              />
+            </Link>
+
+            {/* Right side navigation links */}
+            <div className="d-flex justify-content-end align-items-center">
+              <ul className="navbar-nav">
                 <li className="nav-item">
                   <Link className="nav-link" to="/aboutus">
                     About us
                   </Link>
                 </li>
-                {/* Direct Checkout Button */}
                 <li className="nav-item">
-                  <Link className="nav-link" to="/checkout">
-                    <button className="btn btn-outline-dark ms-3">
-                      Cart ({cart.length})
-                    </button>
+                  <Link className="nav-link" to="/contact">
+                    Contact
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <button className="btn btn-outline-dark ms-3">Book A Table</button>
+                  <button className="btn btn-light ms-3">Book A Table</button>
                 </li>
               </ul>
             </div>
@@ -87,10 +71,14 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Menu1 addToCart={addToCart} />} />
+          <Route path="/services" element={<Menu1 />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/checkout" element={<Checkout cart={cart} clearCart={clearCart} />} /> {/* Pass clearCart */}
+          <Route path="/cart" element={<Cart cart={cartData} />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </Router>
   );
