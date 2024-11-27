@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import 'font-awesome/css/font-awesome.min.css';
+
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './components/Home.jsx';
@@ -13,17 +15,18 @@ import Cart from './components/Cart.jsx';
 import BreakfastReservation from './components/Reservation.jsx';
 
 function App() {
-  const [cart, setCart] = useState([]); // Manage cart state
+  const [cart, setCart] = useState([]); 
 
-  // Function to add items to the cart
+  // Function to update cart
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prevCart) => [...prevCart, item]); // Add item to cart
   };
 
   // Function to clear the cart
   const clearCart = () => {
-    setCart([]);
+    setCart([]); // Clear the cart
   };
+
 
   return (
     <Router>
@@ -38,10 +41,10 @@ function App() {
                     Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/services">
-                    Menu
-                  </Link>
+                 <li className="nav-item">
+                <Link className="nav-link" to="/menu1">  {/* Changed path here */}
+                  Menu
+                </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/Gallery">
@@ -72,6 +75,14 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
+                <Link className="nav-link" to="/checkout">
+                  <button className="btn btn-outline-dark ms-3">
+                  <i className="fas fa-shopping-cart"></i> ({cart.length})
+                  </button>
+                </Link>
+              </li>
+
+                <li className="nav-item">
                   <Link className="btn btn-light ms-3" to="/reservation">
                     Book A Table
                   </Link>
@@ -84,18 +95,12 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/services"
-            element={<Menu1 addToCart={addToCart} />}
-          />
+          <Route path="/menu1" element={<Menu1 addToCart={addToCart} />} />
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/aboutus" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart cart={cart} />} />
-          <Route
-            path="/checkout"
-            element={<Checkout cart={cart} clearCart={clearCart} />}
-          />
+          <Route path="/checkout" element={<Checkout cart={cart} clearCart={clearCart} />} />
           <Route path="/reservation" element={<BreakfastReservation />} />
         </Routes>
 
