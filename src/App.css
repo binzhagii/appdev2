@@ -221,7 +221,7 @@ h1, h2, h4 {
 
 .menu-box h4 {
   font-size: 22px;
-  color: #6f4f37;
+  color: #57473b;
   margin: 15px 0;
 }
 
@@ -237,6 +237,62 @@ h1, h2, h4 {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
+.menu-box .price {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.btn-warm {
+  background: #a8877b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy {
+  background-color: #684d47;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: #644c44;
+}
+
+.btn-warm:hover {
+  background: linear-gradient(135deg, #4b4642, #6d695d);
+}
+
+/* SweetAlert2 Custom Classes for Warm Colors */
+.swal-popup {
+  background-color: #fff5e1;
+}
+
+.swal-btn-confirm {
+  background-color: #9b6f60;
+  color: white;
+  font-weight: bold;
+}
+
+.swal-btn-cancel {
+  background-color: #dbb894;
+  color: white;
+  font-weight: bold;
+}
+
+.swal-btn-confirm:hover,
+.swal-btn-cancel:hover {
+  background-color: #47362a;
+  color: white;
+}
+
+/* Flexbox Layout for Row */
 .row {
   display: flex;
   justify-content: space-between;
@@ -248,6 +304,301 @@ h1, h2, h4 {
   margin: 10px 0;
   text-align: center;
 }
+
+/* Gallery */
+.gallery {
+  padding: 40px 20px;
+  background-color: #fdf6f0;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #b39283;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #d6a48e;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Carousel Container */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel-image {
+  width: 70%;
+  border-radius: 12px;
+  opacity: 0.9;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.carousel-image:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.carousel-description {
+  max-width: 80%;
+  color: #5c3a32;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.carousel-description h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #8c5e52;
+}
+
+/* Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #b39283;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carousel-btn:hover {
+  background-color: #d6a48e;
+}
+
+.carousel-btn-left {
+  left: 10px;
+}
+
+.carousel-btn-right {
+  right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-image {
+    width: 90%;
+  }
+
+  .carousel-description {
+    font-size: 1rem;
+  }
+
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
+
+/* General Styles */
+.about-section {
+  font-family: "Georgia", serif;
+  color: #4a4a4a;
+  background-color: #f9f5f1; /* A warm, light beige */
+  padding: 40px;
+  line-height: 1.6;
+  opacity: 0; /* Initially hide the section */
+  animation: fadeIn 1s forwards; /* Apply the fade-in animation */
+  animation-delay: 0.2s; /* Delay the fade-in for a smoother appearance */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1; /* Fade in */
+  }
+}
+
+/* Heading (h3) Styling */
+.about-section h3 {
+  font-size: 28px;
+  color: #3e3e3e;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center; /* Center the text horizontally */
+  opacity: 0; /* Initially hide the heading */
+  animation: fadeInUp 0.5s forwards; /* Apply the fade-in-up animation */
+  animation-delay: 0.4s; /* Slight delay to stagger the animation */
+}
+
+/* Paragraph Styling */
+.about-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the paragraph text horizontally */
+  opacity: 0; /* Initially hide the paragraph */
+  animation: fadeInUp 0.5s forwards; /* Apply the fade-in-up animation */
+  animation-delay: 0.6s; /* Slight delay to stagger the animation */
+}
+
+/* Keyframes for fade-in-up animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to the normal position */
+  }
+}
+
+
+/* Location Styles */
+.map-container {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* List Styling */
+.about-section ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  text-align: center; /* Center the list items */
+  margin: 0 auto; /* Center the list itself within the parent container */
+}
+
+.about-section ul li {
+  margin-bottom: 10px;
+  display: inline-block; /* Make each list item inline for better centering */
+  text-align: left; /* Align the content of each list item to the left */
+  opacity: 0; /* Initially set the opacity to 0 */
+  transform: translateY(20px); /* Start with a slight downward translation */
+  animation: fadeInUp 0.5s forwards; /* Apply the animation */
+  animation-delay: 0.3s; /* Delay the animation for a slight stagger effect */
+}
+
+.about-section ul li:nth-child(1) {
+  animation-delay: 0.3s; /* Delay for the first list item */
+}
+
+.about-section ul li:nth-child(2) {
+  animation-delay: 0.4s; /* Delay for the second list item */
+}
+
+.about-section ul li:nth-child(3) {
+  animation-delay: 0.5s; /* Delay for the third list item */
+}
+
+.about-section ul li:nth-child(4) {
+  animation-delay: 0.6s; /* Delay for the fourth list item */
+}
+
+.about-section ul li strong {
+  color: #b35900; /* A warm coffee-like color */
+}
+
+/* Keyframes for the animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to the normal position */
+  }
+}
+
+
+/* Team Section Container */
+.team-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Spacing between rows */
+  margin-top: 30px;
+}
+
+/* Row Styling */
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Spacing between members */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Team Member Card Styling */
+.team-member {
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid #e0e0e0; /* Light gray border for a subtle outline */
+  border-radius: 12px; /* Rounded corners for a smoother look */
+  padding: 20px; /* Increased padding for better spacing */
+  width: 250px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for a lifted effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on hover */
+  margin: 10px; /* Space between team members */
+  background-color: #f9f5f1; /* Soft beige background */
+}
+
+.team-member:hover {
+  transform: translateY(-5px); /* Slight upward movement on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.team-img {
+  width: 100%;
+  height: 100%;
+  max-width: 150px; /* Limiting image size for better consistency */
+  max-height: 150px; /* Limiting image size for better consistency */
+  border-radius: 50%; /* Circular image for a clean look */
+  object-fit: cover; /* Ensures the image covers the circular container */
+  margin-bottom: 15px; /* Space between image and text */
+  border: 3px solid #b35900; /* Warm border around the image */
+}
+
+.team-member h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+  text-transform: uppercase; /* Capitalize for emphasis */
+}
+
+.team-member p {
+  font-size: 16px;
+  color: #6e6e6e;
+  margin-top: 0;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+  .team-member {
+    width: 80%; /* Make team members wider on small screens */
+    padding: 15px; /* Reduce padding to fit better */
+  }
+
+  .team-img {
+    max-width: 120px; /* Smaller image size on mobile */
+    max-height: 120px; /* Smaller image size on mobile */
+  }
+}
+
 
 /* Portfolio Section */
 .portfolio {

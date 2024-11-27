@@ -26,7 +26,7 @@ function Contact() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        access_key: "2aef2153-bde5-4a37-bdc3-d88a10cdb9d8",
+        access_key: "c9fd781e-be46-40f8-93a8-e0e3cfe2d25d",
         ...formData,
       }),
     });
@@ -72,8 +72,8 @@ function Contact() {
 
       {/* Form Section */}
       <div className="contact-form-container">
-        <h2>Do You Have a Question?</h2>
-        <p>We'd love to hear from you! Reach out to us for any inquiries or feedback.</p>
+        <h2>Spill the Tea!</h2>
+        <p>Reach out to us for any inquiries or feedback. We'd love to hear a cup of your thought!</p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>

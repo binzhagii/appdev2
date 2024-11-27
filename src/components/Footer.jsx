@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -9,17 +9,17 @@ function Footer() {
           {/* Logo Section */}
           <div className="col-md-4 mb-4">
             <h5 className="fw-bold">KO-CO CAFE</h5>
-            <p>Your Partner for Quality Equipment Reservations and Borrowing</p>
+            <p>Your Sweet Escape for some Coffee, Tea, and Music</p>
           </div>
 
           {/* Contact Information */}
           <div className="col-md-4 mb-4 text-center">
             <h6 className="fw-bold">HAVE QUESTIONS?</h6>
             <p>
-              <FaEnvelope className="me-2" /> support@kococafe.com
+              <FaEnvelope className="me-2" /> kococoffeeteamusic@gmail.com
             </p>
             <p>
-              <FaMapMarkerAlt className="me-2" /> 123 Ko-Co Cafe Lane, Foodsville, FS 45678
+              <FaMapMarkerAlt className="me-2" /> 68 Kisad Road, Baguio City, Philippines
             </p>
           </div>
 
@@ -27,10 +27,10 @@ function Footer() {
           <div className="col-md-4 mb-4 text-end">
             <h6 className="fw-bold">NEED ASSISTANCE?</h6>
             <p>
-              <FaPhoneAlt className="me-2" /> +1 (234) 567-890
+              <FaPhoneAlt className="me-2" /> 0993 024 7430
             </p>
             <div className="social-icons">
-              <FaTwitter className="me-3" />
+              <FaTiktok className="me-3" />
               <FaFacebookF className="me-3" />
               <FaInstagram className="me-3"/>
             </div>

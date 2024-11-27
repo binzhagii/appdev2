@@ -1,16 +1,29 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { useState } from 'react';
 import Home from './components/Home.jsx';
 import Menu1 from './components/Menu1.jsx';
+import Gallery from './components/Gallery.jsx';
+import About from './components/About.jsx';
 import Contact from './components/Contact.jsx';
 import Checkout from './components/Checkout.jsx';
 import Footer from './components/Footer.jsx';
 import Cart from './components/Cart.jsx';
-import BreakfastReservation from './components/Reservation.jsx'; // New component
+import BreakfastReservation from './components/Reservation.jsx';
 
 function App() {
-  const cartData = []; // Initialize empty cart, manage it in Menu1
+  const [cart, setCart] = useState([]); // Manage cart state
+
+  // Function to add items to the cart
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
+  };
+
+  // Function to clear the cart
+  const clearCart = () => {
+    setCart([]);
+  };
 
   return (
     <Router>
@@ -71,11 +84,19 @@ function App() {
         {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Menu1 />} />
+          <Route
+            path="/services"
+            element={<Menu1 addToCart={addToCart} />}
+          />
+          <Route path="/Gallery" element={<Gallery />} />
+          <Route path="/aboutus" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart cart={cartData} />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/reservation" element={<BreakfastReservation />} /> {/* Add this route */}
+          <Route path="/cart" element={<Cart cart={cart} />} />
+          <Route
+            path="/checkout"
+            element={<Checkout cart={cart} clearCart={clearCart} />}
+          />
+          <Route path="/reservation" element={<BreakfastReservation />} />
         </Routes>
 
         {/* Footer */}
