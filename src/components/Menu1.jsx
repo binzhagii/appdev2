@@ -10,25 +10,25 @@ function Menu1({ addToCart }) {
     {
       name: 'Espresso',
       price: { Hot: { Medium: 5, Large: 7 }, Iced: { Medium: 6, Large: 8 } },
-      image: 'https://example.com/espresso.jpg',
+      image: 'src/images/Menu.jpg',
       description: 'A strong and black coffee made from espresso beans.',
     },
     {
       name: 'Latte',
       price: { Hot: { Medium: 6, Large: 8 }, Iced: { Medium: 7, Large: 9 } },
-      image: 'https://example.com/latte.jpg',
+      image: 'src/images/Menu.jpg',
       description: 'A creamy coffee made with espresso and steamed milk.',
     },
     {
       name: 'Cappuccino',
       price: { Hot: { Medium: 6, Large: 8 }, Iced: { Medium: 7, Large: 9 } },
-      image: 'https://example.com/cappuccino.jpg',
+      image: 'src/images/Menu.jpg',
       description: 'A coffee made with espresso, steamed milk, and a layer of foam.',
     },
     {
       name: 'Americano',
       price: { Hot: { Medium: 5, Large: 7 }, Iced: { Medium: 6, Large: 8 } },
-      image: 'https://example.com/americano.jpg',
+      image: 'src/images/Menu.jpg',
       description: 'A simple black coffee made by diluting espresso with hot water.',
     },
   ];

@@ -15,7 +15,7 @@ import teamMember10 from "../assets/avatar.jpg"; // Delivery Man - Rodolfo Cruz
 const About = () => {
   return (
     <div className="about-section">
-
+      <h2 className="gallery-title">About Us</h2>
       <p>
         At Ko-co Cafe, we believe in creating a space where delicious flavors meet great conversations. 
         We are dedicated to bringing you an unforgettable cafe experience, whether you're here for a quiet moment alone or to connect with others.

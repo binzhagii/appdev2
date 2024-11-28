@@ -95,7 +95,7 @@ function Checkout({ cart, clearCart }) {
                 <h5>{item.name}</h5>
                 <p>Size: {item.size}</p>
                 <p>Temperature: {item.temperature}</p>
-                <p>Price: {item.price}₮</p>
+                <p>Price: {item.price}PESOS</p>
               </div>
             ))}
             <div className="mt-4">
