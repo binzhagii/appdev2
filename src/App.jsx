@@ -48,7 +48,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/Gallery">
-                    Gallery
+                    Our Cafe
                   </Link>
                 </li>
               </ul>
