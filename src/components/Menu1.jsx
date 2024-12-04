@@ -3,81 +3,189 @@ import Swal from 'sweetalert2';
 import 'font-awesome/css/font-awesome.min.css';
 
 function Menu1({ addToCart }) {
-  const [selectedSize, setSelectedSize] = useState('Medium');
-  const [selectedTemperature, setSelectedTemperature] = useState('Hot');
-  
-  const menuItems = [
-    {
-      name: 'Espresso',
-      price: { Hot: { Medium: 5, Large: 7 }, Iced: { Medium: 6, Large: 8 } },
-      image: 'https://example.com/espresso.jpg',
-      description: 'A strong and black coffee made from espresso beans.',
-    },
-    {
-      name: 'Latte',
-      price: { Hot: { Medium: 6, Large: 8 }, Iced: { Medium: 7, Large: 9 } },
-      image: 'https://example.com/latte.jpg',
-      description: 'A creamy coffee made with espresso and steamed milk.',
-    },
-    {
-      name: 'Cappuccino',
-      price: { Hot: { Medium: 6, Large: 8 }, Iced: { Medium: 7, Large: 9 } },
-      image: 'https://example.com/cappuccino.jpg',
-      description: 'A coffee made with espresso, steamed milk, and a layer of foam.',
-    },
-    {
-      name: 'Americano',
-      price: { Hot: { Medium: 5, Large: 7 }, Iced: { Medium: 6, Large: 8 } },
-      image: 'https://example.com/americano.jpg',
-      description: 'A simple black coffee made by diluting espresso with hot water.',
-    },
-  ];
+  const [activeCategory, setActiveCategory] = useState('coffee');
 
-  const handleCardClick = (item) => {
-    Swal.fire({
-      title: item.name,
-      html: `
-        <img src="${item.image}" alt="${item.name}" class="img-fluid mb-3" style="max-width: 100%; height: auto;" />
-        <p>${item.description}</p>
-      `,
-      showCancelButton: true,
-      confirmButtonText: 'Add to Cart',
-      customClass: {
-        confirmButton: 'swal-btn-confirm',
-        cancelButton: 'swal-btn-cancel',
-        popup: 'swal-popup',
+  const menuItems = {
+    coffee: [
+      {
+        name: 'Americano',
+        price: { Hot: 5, Iced: 6 },
+        image: 'src/images/Menu.jpg',
+        description: 'A strong and black coffee made from espresso beans.',
       },
-      preConfirm: () => {
-        const size = selectedSize;
-        const temperature = selectedTemperature;
-
-        const itemWithSizeAndTemperature = {
-          ...item,
-          size: size,
-          temperature: temperature,
-          price: item.price[temperature][size],
-        };
-        addToCart(itemWithSizeAndTemperature);
+      {
+        name: 'Cappuccino',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
       },
-    });
+      {
+        name: 'Cafe Latte',
+        price: { Hot: 5, Iced: 6 },
+        image: 'src/images/Menu.jpg',
+        description: 'A strong and black coffee made from espresso beans.',
+      },
+      {
+        name: 'Caramel Machiato',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
+      },
+      {
+        name: 'Cafe Mocha',
+        price: { Hot: 5, Iced: 6 },
+        image: 'src/images/Menu.jpg',
+        description: 'A strong and black coffee made from espresso beans.',
+      },
+      {
+        name: 'White Mocha',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
+      },
+      {
+        name: 'Spanish Latte',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
+      },
+      {
+        name: 'Dirty Matcha',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
+      },
+      {
+        name: 'Dirty Salteed Caramel',
+        price: { Hot: 6, Iced: 7 },
+        image: 'src/images/Menu.jpg',
+        description: 'A creamy coffee made with espresso and steamed milk.',
+      },
+    ],
+    sandwiches: [
+      {
+        name: 'Chilidog Overload',
+        price: 250,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+      {
+        name: 'Chicken Pesto Sandwich',
+        price: 290,
+        image: 'src/images/Menu.jpg',
+        description: 'Scrambled eggs in a sandwich with fresh vegetables.',
+      },
+      {
+        name: 'Savory Beef Sandwich',
+        price: 320,
+        image: 'src/images/Menu.jpg',
+        description: 'Scrambled eggs in a sandwich with fresh vegetables.',
+      },
+    ],
+    snacks: [
+      {
+        name: 'Cheesy Bacon Fries',
+        price: 220,
+        image: 'src/images/Menu.jpg',
+        description: 'Fries topped with cheese and crispy bacon.',
+      },
+      {
+        name: 'Beef Nachos',
+        price: 290,
+        image: 'src/images/Menu.jpg',
+        description: 'Fries topped with cheese and crispy bacon.',
+      },
+      {
+        name: 'Chicken Quesadilla',
+        price: 280,
+        image: 'src/images/Menu.jpg',
+        description: 'A quesadilla with seasoned chicken and melted cheese.',
+      },
+      {
+        name: 'Beef Quesadilla',
+        price: 300,
+        image: 'src/images/Menu.jpg',
+        description: 'Fries topped with cheese and crispy bacon.',
+      },
+      {
+        name: 'Chicken & Waffles',
+        price: 350,
+        image: 'src/images/Menu.jpg',
+        description: 'Fries topped with cheese and crispy bacon.',
+      },
+    ],
+    pasta: [
+      {
+        name: "KoCo's Palabok",
+        price: 250,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+      {
+        name: "KoCo's Special Pasta",
+        price: 270,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+      {
+        name: 'Creamy Pesto Pasta',
+        price: 270,
+        image: 'src/images/Menu.jpg',
+        description: 'A quesadilla with seasoned chicken and melted cheese.',
+      },
+      {
+        name: 'Longanisa Aglio e Olio',
+        price: 270,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+      {
+        name: 'Seafood Pesto Pasta',
+        price: 310,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+    ],
+    salad: [
+      {
+        name: 'Koco Garden Salad',
+        price: 230,
+        image: 'src/images/Menu.jpg',
+        description: 'Fluffy pancakes with syrup and butter.',
+      },
+    ],
   };
 
-  const handleSizeAndTemperatureSelection = (item) => {
+  const handleCardClick = (item) => {
+    if (activeCategory === 'coffee') {
+      handleTemperatureSelection(item);
+    } else {
+      Swal.fire({
+        title: item.name,
+        html: `
+          <img src="${item.image}" alt="${item.name}" class="img-fluid mb-3" style="max-width: 100%; height: auto;" />
+          <p>${item.description}</p>
+          <p><strong>Price:</strong> P${item.price}</p>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Add to Cart',
+        customClass: {
+          confirmButton: 'swal-btn-confirm',
+          cancelButton: 'swal-btn-cancel',
+          popup: 'swal-popup',
+        },
+        preConfirm: () => {
+          addToCart({ ...item, temperature: 'N/A', price: item.price });
+        },
+      });
+    }
+  };
+
+  const handleTemperatureSelection = (item) => {
     Swal.fire({
-      title: `Choose size and temperature for ${item.name}`,
+      title: `Choose temperature for ${item.name}`,
       html: `
         <div class="form-group">
-          <label>Select Size:</label>
-          <div>
-            <input type="radio" id="sizeMedium" name="size" value="Medium" checked />
-            <label for="sizeMedium">Medium</label>
-          </div>
-          <div>
-            <input type="radio" id="sizeLarge" name="size" value="Large" />
-            <label for="sizeLarge">Large</label>
-          </div>
-        </div>
-        <div class="form-group mt-3">
           <label>Select Temperature:</label>
           <div>
             <input type="radio" id="temperatureHot" name="temperature" value="Hot" checked />
@@ -97,16 +205,13 @@ function Menu1({ addToCart }) {
         popup: 'swal-popup',
       },
       preConfirm: () => {
-        const size = document.querySelector('input[name="size"]:checked').value;
         const temperature = document.querySelector('input[name="temperature"]:checked').value;
 
-        const itemWithSizeAndTemperature = {
+        addToCart({
           ...item,
-          size: size,
           temperature: temperature,
-          price: item.price[temperature][size],
-        };
-        addToCart(itemWithSizeAndTemperature);
+          price: item.price[temperature],
+        });
       },
     });
   };
@@ -114,35 +219,82 @@ function Menu1({ addToCart }) {
   return (
     <section className="menu py-5">
       <div className="container">
-        <h2 className="text-center mb-5">Our Coffee Menu</h2>
+        <h2 className="text-center mb-5">Our Menu</h2>
+
+        {/* Navigation bar */}
+        <div className="menu-nav text-center mb-4">
+          <button
+            className={`btn btn-nav ${activeCategory === 'coffee' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('coffee')}
+          >
+            Coffee
+          </button>
+          <button
+            className={`btn btn-nav ${activeCategory === 'sandwiches' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('sandwiches')}
+          >
+            Sandwiches
+          </button>
+          <button
+            className={`btn btn-nav ${activeCategory === 'snacks' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('snacks')}
+          >
+            Snacks
+          </button>
+          <button
+            className={`btn btn-nav ${activeCategory === 'pasta' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('pasta')}
+          >
+            Pasta
+          </button>
+          <button
+            className={`btn btn-nav ${activeCategory === 'salad' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('salad')}
+          >
+            Salad
+          </button>
+        </div>
+
+        {/* Menu Items */}
         <div className="row">
-          {menuItems.map((item, index) => (
-            <div key={index} className="col-md-3 mb-4">
+          {menuItems[activeCategory].map((item, index) => (
+            <div
+              key={index}
+              className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+            >
               <div
-                className="menu-box shadow-lg p-3 rounded"
+                className="menu-box shadow-lg p-3 rounded d-flex flex-column justify-content-between"
+                style={{
+                  height: '100%', // Ensure each box takes up the full available height in the column
+                  cursor: 'pointer',
+                  border: '1px solid #ddd',
+                  transition: 'transform 0.3s ease',
+                }}
                 onClick={() => handleCardClick(item)}
-                style={{ cursor: 'pointer', backgroundColor: '#fff', transition: 'transform 0.3s ease' }}
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="img-fluid rounded mb-3"
-                  style={{ maxHeight: '200px', objectFit: 'cover' }}
+                  className="img-fluid mb-3"
+                  style={{ maxWidth: '100%', height: 'auto' }}
                 />
-                <h4 className="text-center">{item.name}</h4>
-                <p className="text-muted text-center" style={{ fontSize: '0.9rem' }}>{item.description}</p>
-                <div className="d-flex justify-content-between align-items-center mt-3">
+                <h5 className="text-center">{item.name}</h5>
+                <p className="text-center">{item.description}</p>
+                <p className="text-center">
+                  {activeCategory === 'coffee'
+                    ? `Price: P${item.price.Hot} / Hot or P${item.price.Iced} / Iced`
+                    : `Price: P${item.price}`}
+                </p>
                 <button
                   className="btn btn-buy btn-sm"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleSizeAndTemperatureSelection(item);
+                    handleCardClick(item);
                   }}
                   style={{ width: '100%' }}
                 >
-                  Buy
+                  Add To Cart
                 </button>
-                </div>
               </div>
             </div>
           ))}

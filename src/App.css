@@ -13,7 +13,7 @@ h1, h2, h4 {
 
 #hero {
   position: relative;
-  background: url("https://scontent.fcrk1-4.fna.fbcdn.net/v/t39.30808-6/451782355_122157364772055652_8406867323998566647_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHBMObe2nhgWZi0c4YN7VPTVzKBqIs2W9JXMoGoizZb0h92n8q7ExEkU3KWDI00wWzX1mYSmNapHvWpWU9MZbdM&_nc_ohc=7aU3ye8DJAUQ7kNvgF7GIMj&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&_nc_gid=AbgW0jRkET25cSTonmODh1r&oh=00_AYAVc2Lyjuv5yXhXIcuMtyWQ7B8uXzjBtYPWLmjKvUhv3w&oe=6748F0D7") no-repeat center center / cover;
+  background: url('src/images/backgroundH.jpg') no-repeat center center / cover;
   min-height: 100vh;
   color: #fff;
   display: flex;
@@ -206,6 +206,7 @@ h1, h2, h4 {
 
 .menu-box {
   background-color: #fff;
+  margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
