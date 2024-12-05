@@ -90,6 +90,8 @@ const BreakfastReservation = () => {
       
       <div className="reservation-container">
       <h2>Breakfast Buffet</h2>
+      <h3>6:00 AM TO 10:00 AM</h3>
+      <h4>EVERY WEEKEND</h4>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <form onSubmit={handleSubmit} className="reservation-form">
           <div className="form-row">
@@ -129,16 +131,6 @@ const BreakfastReservation = () => {
             />
           </div>
           <div className="form-row">
-            <input
-              type="time"
-              name="reservationTime"
-              placeholder="Reservation Time"
-              value={reservationDetails.reservationTime}
-              onChange={handleChange}
-              min="06:00"
-              max="10:00"
-              required
-            />
             <input
               type="number"
               name="numberOfGuests"

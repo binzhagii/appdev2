@@ -39,7 +39,7 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-custom shadow-sm">
           <div className="container d-flex justify-content-between align-items-center">
             {/* Logo - Hidden on small screens */}
-            <Link to="/home" className="navbar-brand d-none d-sm-block">
+            <Link to="/home" className="navbar-brand d-flex align-items-center">
               <img src="src/images/logo.png" alt="Ko-Co Cafe Logo" className="logo" />
             </Link>
 
@@ -76,7 +76,7 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/aboutus">
-                    About us
+                    Our Cafe
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -92,7 +92,7 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="btn btn-light ms-3" to="/reservation">
+                  <Link className="book-button" to="/reservation">
                     Book A Table
                   </Link>
                 </li>
@@ -113,7 +113,6 @@ function App() {
           <Route path="/reservation" element={<BreakfastReservation />} />
         </Routes>
 
-        {/* Footer */}
         <Footer />
       </div>
     </Router>

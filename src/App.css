@@ -1,7 +1,7 @@
 
 /* Global Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Playfair Display', serif;
   margin: 0;
   padding: 0;
   line-height: 25px;
@@ -14,14 +14,40 @@ h1, h2, h4 {
 
 #hero {
   position: relative;
-  background: url('src/images/backgroundH.jpg') no-repeat center center / cover;
-  min-height: 100vh;
+  background: url('src/images/home.jpg') no-repeat center center / cover;
+  min-height: 250vh;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #333; /* Fallback background */
+}
+
+@media (max-width: 1200px) {
+  #hero {
+    min-height: 250vh; /* Reduce min-height for larger tablet or small desktop screens */
+  }
+}
+
+@media (max-width: 992px) {
+  #hero {
+    min-height: 200vh; /* Further reduce min-height for tablets */
+    background-position: center top; /* Adjust background position for better visibility */
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    min-height: 150vh; /* Reduce the height even further for small tablets and large mobile screens */
+  }
+}
+
+@media (max-width: 576px) {
+  #hero {
+    min-height: 100vh; /* Ensure it's only as tall as the screen on small mobile screens */
+    background-position: top; /* Position the background at the top to avoid cutting off important content */
+  }
 }
 
 #hero::before {
@@ -183,35 +209,36 @@ h1, h2, h4 {
 
 /* Navbar */
 .navbar {
-  background-color: #ffffff; /* Clean white background */
+  background-color: #f8f9fa; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   padding: 20px 0; /* Adjusted for better spacing */
   position: sticky;
   top: 0;
   z-index: 1000;
-  font-family: 'Montserrat', Helvetica; /* Font style from the Cafe2 theme */
+  font-family: 'Playfair Display', serif;
   font-weight: 400; /* Normal weight */
 }
 
+/* Logo */
 .navbar .navbar-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /* Centers the logo */
-  font-size: 14px; /* Larger logo size */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align logo to the left */
+  font-size: 14px; /* Logo font size */
   font-weight: 700; /* Bold logo text */
 }
 
 .navbar .navbar-brand img {
-  width: 150px; /* Adjust the logo size */
-  height: auto;
+  width: 70px; 
+  height: 50px; 
+  margin-right: 10px; /* Space between logo and text */
 }
 
 .navbar-nav {
   display: flex;
-  justify-content: space-between; /* Space between nav items */
+  justify-content: flex-end; /* Right-align navbar items */
   align-items: center;
   width: 100%;
-  margin: 100;
 }
 
 .navbar-nav .nav-item {
@@ -235,6 +262,7 @@ h1, h2, h4 {
   border-bottom: 2px solid #d2691e; /* Underline active link */
 }
 
+/* Button styles */
 .navbar .btn-outline-dark {
   padding: 10px 20px;
   background-color: #e67e22; /* Consistent button color */
@@ -252,26 +280,57 @@ h1, h2, h4 {
   transform: scale(1.05); /* Slight scaling effect */
 }
 
-.navbar-toggler {
-  border: none;
+/* Styling the Book A Table button */
+.book-button {
+  background-color: #d6af6a; /* Gold color, matches the theme */
+  color: #fff; /* White text */
+  padding: 8px 16px; /* Padding around the text */
+  font-size: 16px; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover effects */
 }
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.book-button:hover {
+  background-color: #f59e42; /* Darker gold on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
 }
 
+.book-button:active {
+  background-color: #d78b3a; /* Even darker gold on click */
+  transform: scale(1); /* Reset scale when clicked */
+}
+
+.book-button:focus {
+  outline: none; /* Remove the default focus outline */
+}
+
+.navbar-nav .book-button {
+  margin-left: 20px; /* Space between the cart and the book button */
+  font-weight: bold; /* Bold text */
+}
+
+/* Center collapsible menu in mobile view */
 @media (max-width: 768px) {
-  .navbar-brand {
-    font-size: 14px;
+  .navbar .collapse {
+    text-align: center; /* Center the entire collapsible section */
   }
 
-  .navbar-nav .nav-link {
-    font-size: 14px;
+  .navbar-nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center; /* Center nav items horizontally */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0; /* Add spacing between items */
   }
 
   .navbar .btn-outline-dark {
-    font-size: 10px;
-    padding: 5px 10px;
+    margin-top: 10px; /* Space for cart button */
+  }
+
+  .navbar .btn-light {
+    margin-top: 10px; /* Space for "Book a Table" button */
   }
 }
 
@@ -395,6 +454,9 @@ h1, h2, h4 {
   background-color: #fdf6f0;
   font-family: 'Playfair Display', serif;
   position: relative;
+  opacity: 0; /* Initially hide */
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.2s;
 }
 
 .gallery-title {
@@ -506,12 +568,12 @@ h1, h2, h4 {
 
 /* General Section Styling */
 .about-section {
-  font-family: "Georgia", serif;
+  font-family: 'Playfair Display', serif;
   color: #4a4a4a;
   background-color: #f9f5f1; /* Warm beige */
   padding: 60px 20px;
   line-height: 1.8;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
   opacity: 0; /* Initially hide */
   animation: fadeIn 1s forwards;
   animation-delay: 0.2s;
@@ -793,8 +855,8 @@ h1, h2, h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('C:\Users\user\appdev2\src\assets\inside.jpg') no-repeat center center/cover; /* Background Image */
-  color: #fff;
+  background: url('src/assets/inside.jpg') no-repeat center center/cover; /* Background Image */
+  background-color: #333;
   min-height:fit-content;
 }
 
@@ -912,7 +974,7 @@ h1, h2, h4 {
   max-width: 900px;
   margin: 50px auto;
   padding: 40px 20px;
-  background-color: #ffff; /* Light background overlay for readability */
+  background-color: #ffffffdf; /* Light background overlay for readability */
   border-radius: 15px;
   
 }
@@ -921,21 +983,40 @@ h1, h2, h4 {
   font-family: 'Playfair Display', serif;
   padding: 40px 20px;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.3); /* Optional: add a dark overlay to the header */
-  background-image: url('C:\Users\user\appdev2\src\assets\inside.jpg'); /* Replace with your image URL */
+  background-color: #333;
+  background-image: url('src/images/buffet.jpg'); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0; /* Initially hide */
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.2s;
 }
 
 .reservation-container h2 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #b39283;
   letter-spacing: 2px;
   text-transform: uppercase;
-  padding-bottom: 10px;
+}
+
+.reservation-container h3 {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #b39283; /* Gold-like color */
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+}
+
+.reservation-container h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #a76d4b; /* Slightly darker gold color */
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  font-weight: normal; /* Normal weight for a subtler look */
 }
 
 .reservation-form {

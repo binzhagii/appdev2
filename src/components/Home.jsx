@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Menu from './Menu1.jsx';
+import Contact from './Contact.jsx';
 
 // Import feedback images
 import feedback1 from "../assets/feedback1.jpg";
@@ -17,7 +19,7 @@ function Home() {
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <div className="hero-container">
-          <h1 className="hero-title">LIFE HAPPENS, COFFEE HELPS</h1>
+          <h1 className="hero-title">WELCOME TO KOCOMMUNITY!</h1>
           <p className="hero-subtitle">“Coffee.Tea.Music”</p>
           {/* Link to Menu1 page */}
           <Link to="/menu1">
@@ -57,6 +59,8 @@ function Home() {
         </div>
       </section>
 
+      < Menu />
+
       {/* Customer Feedback Section */}
       <section id="feedback" className="feedback-section">
         <h2 className="feedback-title">Customer Feedback</h2>
@@ -75,6 +79,8 @@ function Home() {
           </div>
         </div>
       </section>
+      
+      < Contact />
     </div>
   );
 }
