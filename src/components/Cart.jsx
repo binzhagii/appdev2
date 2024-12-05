@@ -1,11 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Cart({ cart, clearCart }) {
+function Cart({ cart, setCart, clearCart }) {
   const navigate = useNavigate();
 
   const handleCheckout = () => {
     navigate('/checkout', { state: { cart } }); // Navigate to Checkout page
+  };
+
+  const handleDeleteItem = (index) => {
+    const updatedCart = cart.filter((_, i) => i !== index);
+    setCart(updatedCart); // Update the cart state
   };
 
   return (
@@ -22,9 +27,15 @@ function Cart({ cart, clearCart }) {
                 <p>Size: {item.size}</p>
                 <p>Temperature: {item.temperature}</p>
                 <p>Price: {item.price}₮</p>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDeleteItem(index)}
+                >
+                  Delete
+                </button>
               </div>
             ))}
-            <button className="btn btn-primary" onClick={handleCheckout}>
+            <button className="btn btn-primary mt-4" onClick={handleCheckout}>
               Proceed to Checkout
             </button>
           </div>

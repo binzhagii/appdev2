@@ -15,18 +15,22 @@ import Cart from './components/Cart.jsx';
 import BreakfastReservation from './components/Reservation.jsx';
 
 function App() {
-  const [cart, setCart] = useState([]); 
+  const [cart, setCart] = useState([]);
 
-  // Function to update cart
+  // Function to add an item to the cart
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]); // Add item to cart
+    setCart((prevCart) => [...prevCart, item]);
+  };
+
+  // Function to remove a specific item from the cart
+  const removeItem = (index) => {
+    setCart((prevCart) => prevCart.filter((_, i) => i !== index));
   };
 
   // Function to clear the cart
   const clearCart = () => {
-    setCart([]); // Clear the cart
+    setCart([]);
   };
-
 
   return (
     <Router>
@@ -41,10 +45,10 @@ function App() {
                     Home
                   </Link>
                 </li>
-                 <li className="nav-item">
-                <Link className="nav-link" to="/menu1">  {/* Changed path here */}
-                  Menu
-                </Link>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/menu1">
+                    Menu
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/Gallery">
@@ -75,13 +79,12 @@ function App() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="/checkout">
-                  <button className="btn btn-outline-dark ms-3">
-                  <i className="fas fa-shopping-cart"></i> ({cart.length})
-                  </button>
-                </Link>
-              </li>
-
+                  <Link className="nav-link" to="/checkout">
+                    <button className="btn btn-outline-dark ms-3">
+                      <i className="fas fa-shopping-cart"></i> ({cart.length})
+                    </button>
+                  </Link>
+                </li>
                 <li className="nav-item">
                   <Link className="btn btn-light ms-3" to="/reservation">
                     Book A Table
@@ -99,8 +102,8 @@ function App() {
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/aboutus" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart cart={cart} />} />
-          <Route path="/checkout" element={<Checkout cart={cart} clearCart={clearCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} removeItem={removeItem} />} />
+          <Route path="/checkout" element={<Checkout cart={cart} removeItem={removeItem} clearCart={clearCart} />} />
           <Route path="/reservation" element={<BreakfastReservation />} />
         </Routes>
 
