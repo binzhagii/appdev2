@@ -1,7 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-import { useNavigate } from 'react-router-dom';
-=======
 import { Link } from 'react-router-dom';
 
 // Import feedback images
@@ -13,32 +10,14 @@ import feedback3 from "../assets/feedback3.jpg";
 import exclusive1 from "../assets/exclusive1.jpg"; // Replace with an image relevant to Break with Pantries
 import exclusive2 from "../assets/exclusive2.jpg"; // Replace with an image relevant to Loyalty Card promotion
 import exclusive3 from "../assets/exclusive3.jpg"; // Retain or replace with another image
->>>>>>> cb29a8be95336ae78d3018559a8c42f3057ba374
 
 function Home() {
-  const navigate = useNavigate(); // Hook to navigate to other routes
-
-  const handleButtonClick = () => {
-    navigate('/menu1'); // Redirect to the Menu page
-  };
-
   return (
-<<<<<<< HEAD
-    <section id="hero" className="hero-section">
-      <div className="hero-container">
-        <h1 className="hero-title">LIFE HAPPENS. COFFEE HELPS</h1>
-        <p className="hero-subtitle">“Start your day with a cup of freshly brewed coffee.”</p>
-        <button className="hero-button mt-3" onClick={handleButtonClick}>
-          Buy One Now
-        </button>
-      </div>
-    </section>
-=======
     <div>
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <div className="hero-container">
-          <h1 className="hero-title">FRESH COFFEE IN THE MORNING</h1>
+          <h1 className="hero-title">LIFE HAPPENS, COFFEE HELPS</h1>
           <p className="hero-subtitle">“Coffee.Tea.Music”</p>
           {/* Link to Menu1 page */}
           <Link to="/menu1">
@@ -97,7 +76,6 @@ function Home() {
         </div>
       </section>
     </div>
->>>>>>> cb29a8be95336ae78d3018559a8c42f3057ba374
   );
 }
 
