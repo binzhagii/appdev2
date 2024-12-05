@@ -1,0 +1,108 @@
+
+  
+ 
+  .reservation-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px 20px;
+    background-color: rgba(170, 168, 168, 0.329); 
+    border-radius: 15px;
+  }
+  
+  .reservation-header {
+    padding: 40px 20px;
+    position: relative;
+  }
+  
+  .reservation-header h2 {
+    font-weight: bold;
+    text-align: center !important;
+  }
+  
+  .reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .form-row input,
+  .form-row select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #d6af6a;
+    background-color: transparent;
+    color: #f8f8f8;
+    font-size: 14px;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d6af6a;
+    background-color: transparent;
+    color: #f8f8f8;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    height: 100px;
+    border-radius: 5px;
+  }
+  
+  textarea::placeholder,
+  input::placeholder,
+  select::placeholder {
+    color: #f8f8f8;
+  }
+  
+  .reserve-button {
+    background-color: #d6af6a;
+    color: #000;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .reserve-button:hover {
+    background-color: #c09a5b;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .confirmation h3 {
+    color: #d6af6a;
+    margin-bottom: 10px;
+  }
+  
+  .confirmation p {
+    margin-bottom: 20px;
+  }
+  
+  .confirmation button {
+    padding: 10px 20px;
+    background-color: #d6af6a;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }

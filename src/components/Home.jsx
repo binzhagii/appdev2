@@ -17,7 +17,7 @@ function Home() {
       {/* Hero Section */}
       <section id="hero" className="hero-section">
         <div className="hero-container">
-          <h1 className="hero-title">FRESH COFFEE IN THE MORNING</h1>
+          <h1 className="hero-title">LIFE HAPPENS, COFFEE HELPS</h1>
           <p className="hero-subtitle">“Coffee.Tea.Music”</p>
           {/* Link to Menu1 page */}
           <Link to="/menu1">
