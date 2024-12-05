@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import "../App.css";
-=======
-import "./Reservation.css";
->>>>>>> c8f6dabdf862f4a65f31fcf5110d29333c21f52c
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const BreakfastReservation = () => {
@@ -91,14 +87,9 @@ const BreakfastReservation = () => {
 
   return (
     <div className="reservation-header">
-<<<<<<< HEAD
       
       <div className="reservation-container">
       <h2>Breakfast Buffet</h2>
-=======
-      <h2>Book a Table</h2>
-      <div className="reservation-container">
->>>>>>> c8f6dabdf862f4a65f31fcf5110d29333c21f52c
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <form onSubmit={handleSubmit} className="reservation-form">
           <div className="form-row">
