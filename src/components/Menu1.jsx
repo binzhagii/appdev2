@@ -93,7 +93,7 @@ function Menu1({ addToCart }) {
       {
         name: 'Cheesy Bacon Fries',
         price: 220,
-        image: snackImage,
+        image: '../src/images/cheesy.jpg',
         description: 'Crispy fries smothered in melted cheese and topped with crispy bacon bits for a savory snack.',
       },
       {
@@ -117,7 +117,13 @@ function Menu1({ addToCart }) {
       {
         name: 'Chicken & Waffles',
         price: 350,
-        image: snackImage,
+        image: '../src/images/chickenwaf.jpg',
+        description: 'Crispy fried chicken served with fluffy waffles and drizzled with syrup for a sweet and savory combination.',
+      },
+      {
+        name: 'Cheesy Chicken Ala King',
+        price: 350,
+        image: '../src/images/alaking.jpg',
         description: 'Crispy fried chicken served with fluffy waffles and drizzled with syrup for a sweet and savory combination.',
       },
     ],
@@ -125,7 +131,7 @@ function Menu1({ addToCart }) {
       {
         name: "KoCo's Palabok",
         price: 250,
-        image: pastaImage,
+        image: '../src/images/crispypalabok.jpg',
         description: 'A Filipino classic dish made of rice noodles, garlic, and pork, served with a savory shrimp sauce.',
       },
       {
@@ -143,13 +149,13 @@ function Menu1({ addToCart }) {
       {
         name: 'Longanisa Aglio e Olio',
         price: 270,
-        image: pastaImage,
+        image: '../src/images/longanisa.jpg',
         description: 'A garlic-infused pasta dish with longanisa sausage, giving a unique Filipino twist to an Italian classic.',
       },
       {
         name: 'Seafood Pesto Pasta',
         price: 310,
-        image: pastaImage,
+        image: '../src/images/seafood.jpg',
         description: 'A vibrant pesto pasta dish with shrimp, scallops, and other fresh seafood, mixed with a fragrant pesto sauce.',
       },
     ],
