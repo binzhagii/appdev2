@@ -167,6 +167,41 @@ function Menu1({ addToCart }) {
         description: 'A fresh garden salad made with a mix of greens, topped with a light vinaigrette and your choice of toppings.',
       }
     ],
+    SeasonSpecial: [
+      {
+        name: 'Sunflower Honey Latte',
+        price: { Hot: 160, Iced: 170 },
+        image: saladImage,
+        description: 'espresso, Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Sunflower Honey Milk',
+        price: { Hot: 190, Iced: 200 },
+        image: saladImage,
+        description: 'Sunflower honey syrup milk.',
+      }
+    ],
+    ColdBrew: [
+      {
+        name: 'Classic',
+        price: 150,
+        image:  '../src/images/classic.jpg',
+        description: 'espresso, Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Caramel',
+        price: 220,
+        image:  '../src/images/carameel.jpg',
+        description: 'Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Spanish',
+        price: 220,
+        image: '../src/images/Spanish.jpg',
+        description: 'Spanish Lattee.',
+      }
+    ],
+    
   };
 
   const allItems = Object.values(menuItems).flat();
@@ -236,17 +271,17 @@ function Menu1({ addToCart }) {
           ))}
         </div>
         <div className="row">
-          {(activeCategory === 'all' ? allItems : menuItems[activeCategory] || []).map((item, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div className="menu-box" onClick={() => handleCardClick(item)}>
-                <img src={item.image} alt={item.name} className="img-fluid mb-3" />
-                <h5>{item.name}</h5>
-                <p>{item.description}</p>
-                <p>
-                  {activeCategory === 'coffee'
-                    ? `Price: P${item.price.Hot} / Hot or P${item.price.Iced} / Iced`
-                    : `Price: P${item.price}`}
-                </p>
+  {(activeCategory === 'all' ? allItems : menuItems[activeCategory] || []).map((item, index) => (
+    <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div className="menu-box" onClick={() => handleCardClick(item)}>
+        <img src={item.image} alt={item.name} className="img-fluid mb-3" />
+        <h5>{item.name}</h5>
+        <p>{item.description}</p>
+        <p>
+          {typeof item.price === 'object'
+            ? `Price: P${item.price.Hot} / Hot or P${item.price.Iced} / Iced`
+            : `Price: P${item.price}`}
+        </p>
                 <button className="btn btn-buy btn-sm" onClick={(e) => { e.stopPropagation(); handleCardClick(item); }}>
                   Add To Cart
                 </button>

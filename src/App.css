@@ -345,6 +345,12 @@ h1, h2, h4 {
   color: #6f4f37;
   margin-bottom: 40px;
 }
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjust this value to control the space between items */
+  justify-content: center; /* Align items to the center */
+}
 .menu-container {
   background-color: var(--background-color);
   padding: 2rem 0;
@@ -355,7 +361,7 @@ h1, h2, h4 {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
   display: flex;
