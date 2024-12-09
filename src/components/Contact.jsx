@@ -39,7 +39,7 @@ function Contact() {
   };
 
   return (
-    <div className="about-section">
+    <div className="contact-page">
       <h2 className="gallery-title">Contact Us</h2>
       <div className="contact-container">
         {/* Left Section: Hours and Services */}

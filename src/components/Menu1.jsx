@@ -213,7 +213,7 @@ function Menu1({ addToCart }) {
 
   return (
     <section className="menu">
-      <div className="about-section">
+      <div className="services">
         <h2 className="text-center mb-5">Our Menu</h2>
         <div className="menu-nav text-center mb-4">
           <button className={`btn btn-nav ${activeCategory === 'all' ? 'active' : ''}`} onClick={() => setActiveCategory('all')}>
