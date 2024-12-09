@@ -391,23 +391,46 @@ h1, h2, h3 {
   color: #6f4f37;
   margin-bottom: 40px;
 }
+.menu .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Adjust this value to control the space between items */
+  justify-content: center; /* Align items to the center */
+}
+.menu-container {
+  background-color: var(--background-color);
+  padding: 2rem 0;
+}
 
 .menu-box {
   background-color: #fff;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
-
+.menu-box:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--card-shadow);
+}
 .menu-box img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-bottom: 2px solid #6f4f37;
+  transition: transform 0.4s ease;
 }
-
+.menu-box h5 {
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 1.50rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
 .menu-box h4 {
   font-size: 22px;
   color: #57473b;
@@ -419,6 +442,7 @@ h1, h2, h3 {
   color: #333;
   padding: 0 15px 15px;
   line-height: 1.5;
+  flex-grow: 1;
 }
 
 .menu-box:hover {
@@ -448,10 +472,13 @@ h1, h2, h3 {
   color: white;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  border: none;
 }
 
 .btn-buy:hover {
-  background-color: #644c44;
+  background-color: #4e3b3b;
+  color: rgb(172, 170, 170);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-warm:hover {

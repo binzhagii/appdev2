@@ -93,7 +93,7 @@ function Menu1({ addToCart }) {
       {
         name: 'Cheesy Bacon Fries',
         price: 220,
-        image: snackImage,
+        image: '../src/images/cheesy.jpg',
         description: 'Crispy fries smothered in melted cheese and topped with crispy bacon bits for a savory snack.',
       },
       {
@@ -117,7 +117,13 @@ function Menu1({ addToCart }) {
       {
         name: 'Chicken & Waffles',
         price: 350,
-        image: snackImage,
+        image: '../src/images/chickenwaf.jpg',
+        description: 'Crispy fried chicken served with fluffy waffles and drizzled with syrup for a sweet and savory combination.',
+      },
+      {
+        name: 'Cheesy Chicken Ala King',
+        price: 350,
+        image: '../src/images/alaking.jpg',
         description: 'Crispy fried chicken served with fluffy waffles and drizzled with syrup for a sweet and savory combination.',
       },
     ],
@@ -125,7 +131,7 @@ function Menu1({ addToCart }) {
       {
         name: "KoCo's Palabok",
         price: 250,
-        image: pastaImage,
+        image: '../src/images/crispypalabok.jpg',
         description: 'A Filipino classic dish made of rice noodles, garlic, and pork, served with a savory shrimp sauce.',
       },
       {
@@ -143,13 +149,13 @@ function Menu1({ addToCart }) {
       {
         name: 'Longanisa Aglio e Olio',
         price: 270,
-        image: pastaImage,
+        image: '../src/images/longanisa.jpg',
         description: 'A garlic-infused pasta dish with longanisa sausage, giving a unique Filipino twist to an Italian classic.',
       },
       {
         name: 'Seafood Pesto Pasta',
         price: 310,
-        image: pastaImage,
+        image: '../src/images/seafood.jpg',
         description: 'A vibrant pesto pasta dish with shrimp, scallops, and other fresh seafood, mixed with a fragrant pesto sauce.',
       },
     ],
@@ -161,6 +167,41 @@ function Menu1({ addToCart }) {
         description: 'A fresh garden salad made with a mix of greens, topped with a light vinaigrette and your choice of toppings.',
       }
     ],
+    SeasonSpecial: [
+      {
+        name: 'Sunflower Honey Latte',
+        price: { Hot: 160, Iced: 170 },
+        image: saladImage,
+        description: 'espresso, Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Sunflower Honey Milk',
+        price: { Hot: 190, Iced: 200 },
+        image: saladImage,
+        description: 'Sunflower honey syrup milk.',
+      }
+    ],
+    ColdBrew: [
+      {
+        name: 'Classic',
+        price: 150,
+        image:  '../src/images/classic.jpg',
+        description: 'espresso, Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Caramel',
+        price: 220,
+        image:  '../src/images/carameel.jpg',
+        description: 'Sunflower honey syrup milk.',
+      },
+      {
+        name: 'Spanish',
+        price: 220,
+        image: '../src/images/Spanish.jpg',
+        description: 'Spanish Lattee.',
+      }
+    ],
+    
   };
 
   const allItems = Object.values(menuItems).flat();
@@ -230,17 +271,17 @@ function Menu1({ addToCart }) {
           ))}
         </div>
         <div className="row">
-          {(activeCategory === 'all' ? allItems : menuItems[activeCategory] || []).map((item, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-              <div className="menu-box" onClick={() => handleCardClick(item)}>
-                <img src={item.image} alt={item.name} className="img-fluid mb-3" />
-                <h5>{item.name}</h5>
-                <p>{item.description}</p>
-                <p>
-                  {activeCategory === 'coffee'
-                    ? `Price: P${item.price.Hot} / Hot or P${item.price.Iced} / Iced`
-                    : `Price: P${item.price}`}
-                </p>
+  {(activeCategory === 'all' ? allItems : menuItems[activeCategory] || []).map((item, index) => (
+    <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div className="menu-box" onClick={() => handleCardClick(item)}>
+        <img src={item.image} alt={item.name} className="img-fluid mb-3" />
+        <h5>{item.name}</h5>
+        <p>{item.description}</p>
+        <p>
+          {typeof item.price === 'object'
+            ? `Price: P${item.price.Hot} / Hot or P${item.price.Iced} / Iced`
+            : `Price: P${item.price}`}
+        </p>
                 <button className="btn btn-buy btn-sm" onClick={(e) => { e.stopPropagation(); handleCardClick(item); }}>
                   Add To Cart
                 </button>
