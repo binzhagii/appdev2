@@ -27,9 +27,9 @@ function Cart({ cart, setCart, clearCart }) {
                 <img src={item.image} alt={item.name} className="cart-item-image" style={{ width: '100px', height: '100px', objectFit: 'cover', marginRight: '20px' }} />
                 <div>
                   <h5>{item.name}</h5>
-                  <p>Size: {item.size}</p>
+                  
                   <p>Temperature: {item.temperature}</p>
-                  <p>Price: {item.price}₮</p>
+                  <p>Price: {item.price}</p>
                   <button
                     className="btn btn-danger"
                     onClick={() => handleDeleteItem(index)}
