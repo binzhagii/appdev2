@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Menu from './Menu1.jsx';
-import Contact from './Contact.jsx';
-
-// Import feedback images
-import feedback1 from "../assets/feedback1.jpg";
-import feedback2 from "../assets/feedback2.jpg";
-import feedback3 from "../assets/feedback3.jpg";
 
 // Import exclusive images
 import exclusive1 from "../assets/exclusive1.jpg";

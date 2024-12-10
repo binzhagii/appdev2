@@ -15,7 +15,7 @@ import verImage from "../assets/ver.jpg";
 import veraImage from "../assets/vera.jpg";
 
 const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
     { uri: bonImage, description: "Warm and inviting ambiance, perfect for a café aesthetic." },
@@ -32,36 +32,43 @@ const Gallery = () => {
     { uri: veraImage, description: "Elegant and sophisticated decor for a serene atmosphere." },
   ];
 
-  // Handle swipe navigation
-  const moveToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  // Handle image click
+  const handleImageClick = (uri) => {
+    setSelectedImage(uri);
   };
 
-  const moveToPrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  // Close the modal
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
   return (
     <div className="gallery">
-      <h2 className="gallery-title">Gallery</h2>
-      <div className="carousel">
-        <div className="carousel-track">
-          {/* Display current image */}
-          <div className="carousel-item">
-            <img src={images[currentIndex].uri} alt={images[currentIndex].description} className="carousel-image" />
-            <div className="carousel-description">
-              <h3>{images[currentIndex].description}</h3>
+      <h2 className="gallery-title">Our gallery</h2>
+      <div className="gallery-grid">
+        {images.map((image, index) => (
+          <div key={index} className={`gallery-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+            <img 
+              src={image.uri} 
+              alt={image.description} 
+              className="gallery-image" 
+              onClick={() => handleImageClick(image.uri)} 
+            />
+            <div className="gallery-description">
+              <p>{image.description}</p>
             </div>
           </div>
-        </div>
-        {/* Navigation buttons */}
-        <button className="carousel-btn carousel-btn-left" onClick={moveToPrev}>
-          &lt;
-        </button>
-        <button className="carousel-btn carousel-btn-right" onClick={moveToNext}>
-          &gt;
-        </button>
+        ))}
       </div>
+
+      {/* Modal */}
+      {selectedImage && (
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content">
+            <img src={selectedImage} alt="Enlarged view" className="modal-image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
